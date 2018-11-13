@@ -42,7 +42,7 @@ Set up your build environment as follows:
     ```
     cc_binary(
         name = "helloworld.js",
-        srcs = ["helloworld.cc"],
+        srcs = ["hello-world.cc"],
     )
     ```
 
@@ -81,7 +81,7 @@ different order, but the configuration procedure is the same.
 1.  Run the build with the following command:
 
     ```
-    bazel build --config=asmjs helloworld.js
+    bazel build --config=asmjs //main:helloworld.js
     ```
 
     Because you specified `--crosstool_top=//toolchain:emscripten` in the
@@ -197,6 +197,12 @@ different order, but the configuration procedure is the same.
     ```
     No toolchain found for cpu 'asmjs'.
     ```
+    
+    or:
+
+    ```
+    Toolchain identifier 'asmjs-toolchain' was not found, valid identifiers are []
+    ```
 
     Since you have specified `--crosstool_top` and `--cpu` in the `.bazelrc`
     file, `//toolchain:asmjs_toolchain` is selected. Because we specify
@@ -238,7 +244,7 @@ different order, but the configuration procedure is the same.
 
     ```
     # toolchain/CROSSTOOL
-    # ...
+    # Inside 'toolchain { ...
     tool_path {
         name: "gcc"
         path: "emcc.sh"
