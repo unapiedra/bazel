@@ -197,12 +197,6 @@ different order, but the configuration procedure is the same.
     ```
     No toolchain found for cpu 'asmjs'.
     ```
-    
-    or:
-
-    ```
-    Toolchain identifier 'asmjs-toolchain' was not found, valid identifiers are []
-    ```
 
     Since you have specified `--crosstool_top` and `--cpu` in the `.bazelrc`
     file, `//toolchain:asmjs_toolchain` is selected. Because we specify
